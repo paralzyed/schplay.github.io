@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Random Game - Schplay</title>
+    <link rel="icon" href="/images/favicon.webp" type="image/webp">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/monocraft.css">
+    <link rel="stylesheet" href="navbar.css">
+    <!-- Scripts with defer attribute to improve page load time -->
+    <script src="/js/timeTracker.js" defer></script>
+    <script src="/js/favicon.js" defer></script>
+    <script src="/js/panic.js" defer></script>
+    <script src="/js/autoclicker.js" defer></script>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5690564842575659"
+      crossorigin="anonymous"></script>
+    <meta property="og:title" content="Random Game - Schplay">
+    <meta property="og:description" content="Find a new favorite game with our random game generator! Discover surprise games from our collection of classroom-friendly games.">
+    <meta property="og:image" content="https://schplay.com/images/og-image.jpg">
+<meta property="og:url" content="https://schplay.com/random.html">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Random Game - Schplay">
+    <meta name="twitter:description" content="Find a new favorite game with our random game generator! Discover surprise games from our collection of classroom-friendly games.">
+    <meta name="twitter:image" content="https://schplay.com/images/twitter-image.jpg">
+    <meta name="keywords" content="online games, unblocked games, free games online, chromebook games, free games, hoodamath, coolmathgames, nealfun, slope, unblocked roblox, geometry dash, eaglercraft, minecraft online, classroom games, rocket league online, unblocked games at school, browser games, school games, schplay">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <style>
+      /* Only keep styles that are used and set all text color to #111 */
+      body, h1, h2, h3, h4, h5, h6, p, span, a, div, input, button, .sidebar-title, .category-count, .footer-links a, .game-title, .game-badge, .badge-new, .badge-popular, .badge-deal, .announcement-content span, .announcement-content span a {
+        color: #111 !important;
+      }
+      /* Update font import to focus on Orbitron with multiple weights */
+      @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+      body {
+        font-family: 'Orbitron', sans-serif;
+        background: linear-gradient(135deg, #f8f9ff 0%, #a0f7eb 100%);
+        line-height: 1.6;
+        font-size: 14px; /* Reduced font size */
+        min-height: 100vh;
+        letter-spacing: 0.02em;
+        position: relative;
+      }
+      
+      /* Add subtle animated background pattern */
+      body:before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        z-index: -1;
+        background-image: 
+          linear-gradient(135deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
+          linear-gradient(225deg, rgba(255, 255, 25, 0.1) 25%, transparent 25%),
+          linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%),
+          linear-gradient(315deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%);
+        background-size: 30px 30px;
+        animation: backgroundShift 120s linear infinite;
+      }
+      
+      @keyframes backgroundShift {
+        0% { background-position: 0 0; }
+        100% { background-position: 300px 300px; }
+      }
+
+      /* Random Game Specific Styles */
+      .random-game-container {
+        text-align: center;
+        background: rgba(255,255,255,0.85);
+        border-radius: 24px;
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.2);
+        border: 2px solid #ffb6f9;
+        backdrop-filter: blur(8px);
+        padding: 30px;
+        margin: 30px auto;
+        max-width: 800px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .random-game-container:before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,182,249,0.1) 0%, transparent 70%);
+        transform: rotate(45deg);
+        animation: shimmer 5s infinite;
+      }
+      
+      @keyframes shimmer {
+        0% { transform: rotate(45deg) translateY(100%); }
+        100% { transform: rotate(45deg) translateY(-100%); }
+      }
+      
+      .random-game-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px 0 rgba(31,38,135,0.3);
+      }
+      
+      .random-game-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 20px;
+        background: linear-gradient(90deg, #ffb6f9 0%, #b5fffc 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      
+      .random-game-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        color: #43c6ac;
+        font-weight: 500;
+      }
+      
+      .random-game-card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 30px;
+        background: linear-gradient(135deg, #b5fffc 0%, #ffb6f9 100%);
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(181, 255, 252, 0.5);
+        padding: 0;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+        border: 3px solid #43c6ac;
+        overflow: hidden;
+        position: relative;
+        height: 350px;
+      }
+      
+      .random-game-card:hover {
+        transform: scale(1.05) rotate(2deg);
+        box-shadow: 0 15px 35px rgba(255, 182, 249, 0.6);
+        border: 3px solid #ffb6f9;
+      }
+      
+      .random-game-card img {
+        width: 100%;
+        height: 70%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+        border-radius: 15px 15px 0 0;
+      }
+      
+      .random-game-card:hover img {
+        transform: scale(1.08);
+      }
+      
+      .random-game-info {
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .random-game-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+        text-align: center;
+        color: #111;
+        transition: color 0.3s;
+      }
+      
+      .random-game-category {
+        font-size: 0.9rem;
+        color: #43c6ac;
+        font-weight: 600;
+        background: rgba(181, 255, 252, 0.2);
+        padding: 3px 10px;
+        border-radius: 12px;
+        display: inline-block;
+      }
+      
+      .new-random-button {
+        background: linear-gradient(90deg, #ffb6f9 0%, #b5fffc 100%);
+        border: 3px solid #43c6ac;
+        padding: 15px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        font-size: 1.2rem;
+        font-family: 'Orbitron', sans-serif;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        box-shadow: 0 6px 15px rgba(255, 182, 249, 0.4);
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .new-random-button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+        transition: left 0.7s;
+      }
+      
+      .new-random-button:hover {
+        background: linear-gradient(90deg, #b5fffc 0%, #ffb6f9 100%);
+        transform: scale(1.08) translateY(-5px);
+        box-shadow: 0 10px 25px rgba(67, 198, 172, 0.5);
+        border: 3px solid #ffb6f9;
+      }
+      
+      .new-random-button:hover:before {
+        left: 100%;
+      }
+      
+      .dice-animation {
+        font-size: 2rem;
+        margin-right: 10px;
+        animation: roll 1s infinite;
+        display: inline-block;
+      }
+      
+      @keyframes roll {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(90deg); }
+        50% { transform: rotate(180deg); }
+        75% { transform: rotate(270deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      /* Random Game Facts Section */
+      .random-facts {
+        margin-top: 40px;
+        padding: 20px;
+        background: rgba(255,255,255,0.7);
+        border-radius: 15px;
+        border: 2px solid #43c6ac;
+        position: relative;
+      }
+      
+      .random-facts h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        color: #111;
+        text-align: center;
+      }
+      
+      .random-fact {
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        background: rgba(181, 255, 252, 0.2);
+        border-radius: 10px;
+        font-size: 0.95rem;
+        transition: transform 0.2s ease;
+      }
+      
+      .random-fact:hover {
+        transform: translateX(5px);
+        background: rgba(255, 182, 249, 0.2);
+      }
+      
+      /* Loading animation */
+      @keyframes pulse {
+        0% { transform: scale(0.95); opacity: 0.7; }
+        50% { transform: scale(1.05); opacity: 1; }
+        100% { transform: scale(0.95); opacity: 0.7; }
+      }
+      
+      .loading-animation {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3rem;
+        color: #43c6ac;
+        animation: pulse 1.5s infinite;
+      }
+      
+      /* Maintain the rest of the styles from index.html */
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+        background: rgba(255,255,255,0.85);
+        border-radius: 24px;
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.2);
+        border: 2px solid #ffb6f9;
+        backdrop-filter: blur(8px);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .container:hover {
+        box-shadow: 0 10px 40px 0 rgba(31,38,135,0.3);
+        transform: translateY(-3px);
+      }
+
+      /* Improved Navigation Bar Styles */
+      .top-nav {
+        background: linear-gradient(90deg, #ffb6f9 0%, #b5fffc 100%);
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        border-bottom: 2px solid #43c6ac;
+        position: relative;
+        z-index: 1000;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-logo {
+        height: 40px;
+        width: auto;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-logo:hover {
+        transform: scale(1.05);
+      }
+
+      .search-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 8px 16px;
+        box-shadow: 0 4px 18px rgba(181, 255, 252, 0.5);
+        transition: all 0.3s ease;
+        border: 2px solid #ffb6f9;
+        margin: 0 !important;
+        flex: 1;
+        max-width: unset !important;
+      }
+      
+      .search-container:hover {
+        box-shadow: 0 6px 22px rgba(181, 255, 252, 0.7);
+        transform: translateY(-2px);
+      }
+
+      .search-container input {
+        flex: 1;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 2px solid rgba(181, 255, 252, 0.3);
+        font-family: 'Orbitron', sans-serif;
+        font-size: 16px;
+        outline: none;
+        transition: all 0.3s ease;
+        background: white;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+      
+      .search-container input:focus {
+        border-color: #43c6ac;
+        box-shadow: inset 0 2px 5px rgba(67, 198, 172, 0.2);
+      }
+
+      .classroom-icon {
+        width: 36px;
+        height: 36px;
+        cursor: pointer;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s;
+        filter: drop-shadow(0 2px 4px rgba(67, 198, 172, 0.5));
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #ffb6f9;
+        padding: 3px;
+        margin: 0 3px;
+      }
+
+      .classroom-icon:hover {
+        transform: scale(1.15) rotate(8deg);
+        filter: drop-shadow(0 4px 12px rgba(67, 198, 172, 0.7)) brightness(1.2);
+        background: #ffb6f9;
+      }
+      
+      /* Make sure the navbar is responsive */
+      @media (max-width: 768px) {
+        .top-nav {
+          flex-direction: column;
+          padding: 12px 15px;
+          gap: 12px;
+        }
+        
+        .search-container {
+          width: 100%;
+          order: 2;
+        }
+        
+        .nav-logo {
+          align-self: flex-start;
+        }
+      }
+
+      /* ... other styles from index.html ... */
+    </style>
+    <script>
+        // CRITICAL FIX: Apply this immediately in the head to ensure it runs before anything else
+        document.addEventListener('DOMContentLoaded', function() {
+            // Same sidebar styling fix from index.html
+            document.querySelectorAll('style').forEach(styleTag => {
+                let css = styleTag.innerHTML;
+                if (css.includes('.sidebar')) {
+                    css = css.replace(/\.sidebar\s*{[^}]*}/g, '');
+                    styleTag.innerHTML = css;
+                }
+            });
+            
+            // Create a completely new style element with just our sidebar style
+            const newStyle = document.createElement('style');
+            newStyle.innerHTML = `
+                .sidebar {
+                    width: 200px !important;
+                    min-width: 200px !important;
+                    max-width: 200px !important;
+                    background: linear-gradient(135deg, #b5fffc 0%, #ffb6f9 100%) !important;
+                    border-radius: 18px !important;
+                    box-shadow: 0 4px 18px rgba(67, 198, 172, 0.2) !important;
+                    padding: 16px 12px !important;
+                    font-family: 'Orbitron', sans-serif !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    justify-content: flex-start !important;
+                    gap: 4px !important;
+                    position: sticky !important;
+                    top: 80px !important;
+                    height: auto !important;
+                    max-height: calc(100vh - 100px) !important;
+                    overflow-y: auto !important;
+                    z-index: 10 !important;
+                    border: 2px solid rgba(67, 198, 172, 0.3) !important;
+                    align-self: flex-start !important;
+                }
+                
+                /* Style the sidebar heading for better balance */
+                .sidebar-heading {
+                    font-size: 16px !important;
+                    font-weight: 700 !important;
+                    margin-bottom: 10px !important;
+                    text-align: center !important;
+                    padding: 6px 0 !important;
+                    border-bottom: 2px solid rgba(67, 198, 172, 0.4) !important;
+                    background: rgba(255, 255, 255, 0.3) !important;
+                    border-radius: 8px !important;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+                }
+                
+                /* Category group headings */
+                .category-group-heading {
+                    font-size: 11px !important;
+                    font-weight: 700 !important;
+                    text-transform: uppercase !important;
+                    letter-spacing: 0.5px !important;
+                    padding: 3px 8px !important;
+                    margin: 5px 0 2px 0 !important;
+                    background: rgba(255, 182, 249, 0.15) !important;
+                    border-radius: 4px !important;
+                    text-align: center !important;
+                }
+                
+                /* Optimized category items */
+                .category-item {
+                    padding: 5px 8px !important;
+                    margin: 0 !important;
+                    font-size: 12px !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    border-radius: 6px !important;
+                    transition: all 0.2s ease !important;
+                    justify-content: flex-start !important;
+                    gap: 6px !important;
+                    background: rgba(255, 255, 255, 0.1) !important;
+                    border-left: 2px solid transparent !important;
+                }
+                
+                .category-item:hover {
+                    background: rgba(255, 255, 255, 0.3) !important;
+                    transform: translateX(2px) !important;
+                    border-left: 2px solid rgba(67, 198, 172, 0.7) !important;
+                }
+                
+                .category-item.active {
+                    background: rgba(255, 182, 249, 0.2) !important;
+                    font-weight: bold !important;
+                    border-left: 2px solid #ffb6f9 !important;
+                }
+                
+                /* Icon wrapper */
+                .category-icon-wrapper {
+                    width: 16px !important;
+                    min-width: 16px !important;
+                    display: flex !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                    color: rgba(44, 61, 80, 0.9) !important;
+                }
+                
+                /* Category text */
+                .category-item span {
+                    flex: 1 !important;
+                    white-space: nowrap !important;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis !important;
+                    font-weight: 500 !important;
+                    color: rgba(44, 61, 80, 0.9) !important;
+                }
+                
+                /* Dividers */
+                .category-divider {
+                    height: 1px !important;
+                    background: linear-gradient(90deg, transparent, rgba(67, 198, 172, 0.3), transparent) !important;
+                    margin: 6px 0 !important;
+                    width: 100% !important;
+                }
+                
+                /* Special categories */
+                @keyframes pulse {
+                    0% { opacity: 0.7; }
+                    50% { opacity: 1; }
+                    100% { opacity: 0.7; }
+                }
+                
+                .category-item[data-category="new"] .category-icon-wrapper {
+                    color: #ff6b6b !important;
+                    animation: pulse 2s infinite !important;
+                }
+                
+                .category-item[data-category="best"] .category-icon-wrapper,
+                .category-item[data-category="multiplayer"] .category-icon-wrapper {
+                    color: #43c6ac !important;
+                }
+                
+                /* Main content to work with sidebar */
+                .main-content {
+                    flex: 1 !important;
+                    min-width: 0 !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    gap: 24px !important;
+                    width: auto !important;
+                }
+                
+                /* Main flex container */
+                .main-flex {
+                    display: flex !important;
+                    flex-direction: row !important;
+                    gap: 20px !important;
+                    margin: 0 auto !important;
+                    padding: 0 15px !important;
+                    max-width: 1800px !important;
+                    align-items: flex-start !important;
+                }
+                
+                /* Responsive handling */
+                @media (max-width: 1100px) {
+                    .main-flex {
+                        flex-direction: column !important;
+                    }
+                    
+                    .sidebar {
+                        width: 100% !important;
+                        max-width: 100% !important;
+                        min-width: 100% !important;
+                        margin-right: 0 !important;
+                        border-radius: 18px !important;
+                        position: static !important;
+                        height: auto !important;
+                        max-height: none !important;
+                    }
+                    
+                    .main-content {
+                        width: 100% !important;
+                    }
+                }
+            `;
+            document.head.appendChild(newStyle);
+            
+            // Ensure main-flex has the right display
+            setTimeout(function() {
+                const mainFlex = document.querySelector('.main-flex');
+                if (mainFlex) {
+                    mainFlex.style.display = 'flex';
+                    mainFlex.style.flexDirection = 'row';
+                    mainFlex.style.alignItems = 'flex-start';
+                }
+                
+                const sidebar = document.querySelector('.sidebar');
+                if (sidebar) {
+                    sidebar.style.position = 'sticky';
+                    sidebar.style.top = '80px';
+                    sidebar.style.alignSelf = 'flex-start';
+                }
+                
+                const mainContent = document.querySelector('.main-content');
+                if (mainContent) {
+                    mainContent.style.flex = '1';
+                    mainContent.style.minWidth = '0';
+                }
+            }, 0);
+        });
+    </script>
+    <link rel="stylesheet" href="css/bento.css">
+</head>
+<body>
+  <!-- New Navigation Bar -->
+  <nav class="top-nav">
+    <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="/images/logo.webp" loading="lazy" alt="Site Logo" class="nav-logo">
+    <!-- Search container with fixed styling -->
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search for games..." aria-label="Search for games">
+      <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="https://upload.wikimedia.org/wikipedia/commons/5/59/Google_Classroom_Logo.png" loading="lazy" 
+           alt="Share to Google Classroom" 
+           class="classroom-icon"
+           title="Share to Google Classroom"
+           onclick="window.open('https://classroom.google.com/share?url=' + encodeURIComponent(window.location.href), '_blank')">
+      <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/X_logo.webp" loading="lazy" 
+           alt="Share to X/Twitter" 
+           class="classroom-icon"
+           title="Share to X/Twitter"
+           onclick="window.open('https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href), '_blank')">
+      <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" loading="lazy" 
+           alt="Visit YouTube Channel" 
+           class="classroom-icon"
+           title="Visit YouTube Channel"
+           onclick="window.open('https://www.youtube.com/@schplay-1/')">
+      <img  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="../images/discord.webp" loading="lazy" 
+           alt="Join Discord Server" 
+           class="classroom-icon"
+           title="Join Discord Server"
+           onclick="window.open('https://discord.gg/eAYw73K5XA')">
+    </div>
+  </nav>
+
+  <!-- Add scrolling announcement bar -->
+  
+  <div class="container">
+    <div class="button-container1">
+        <button class="button" onclick="window.location.href = '../comments';">Live Chat & Public Comments</button>
+        <button class="button" onclick="window.location.href = 'https://forms.gle/BPQn1Tki8Ep9ThoQ7';">Game Request</button>
+        <button class="button" onclick="window.location.href = 'settings';">Website Settings</button>
+        <button class="button" onclick="window.location.href = '../leaderboard';">Leaderboard</button>
+        <button class="button" onclick="window.location.href = '';">Shop on Amazon</button>
+    </div>
+  </div>
+
+  <!-- Main Content Area with Sidebar -->
+  <div class="main-flex" style="display: flex; flex-direction: row; gap: 20px; margin: 20px auto; max-width: 1800px; align-items: flex-start;">
+    <!-- Enhanced Sidebar -->
+    <aside class="sidebar" style="width: 200px; min-width: 200px; max-width: 200px; position: static; height: auto; margin: 0; border-radius: 18px; align-self: flex-start;">
+      <h3 class="sidebar-heading"><i class="fas fa-gamepad"></i> Game Categories</h3>
+      
+      <div class="category-group-heading">Featured</div>
+      <div class="category-item" data-category="all">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-list"></i>
+        </div>
+        <span><a href="index.html" style="text-decoration:none; color:inherit;">All Categories</a></span>
+      </div>
+      
+      <div class="category-item active" data-category="random">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-random"></i>
+        </div>
+        <span><a href="random.html" style="text-decoration:none; color:inherit;">Random Game</a></span>
+      </div>
+      
+      <div class="category-item" data-category="new">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-star"></i>
+        </div>
+        <span><a href="new.html" style="text-decoration:none; color:inherit;">New Games</a></span>
+      </div>
+      
+      <div class="category-divider"></div>
+      <div class="category-group-heading">Game Types</div>
+      
+      <div class="category-item" data-category="multiplayer">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-users"></i>
+        </div>
+        <span><a href="multiplayer.html" style="text-decoration:none; color:inherit;">Multiplayer</a></span>
+      </div>
+      
+      <div class="category-item" data-category="2player">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-user-friends"></i>
+        </div>
+        <span><a href="2player.html" style="text-decoration:none; color:inherit;">Two Player</a></span>
+      </div>
+      
+      <div class="category-item" data-category="sports">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-futbol"></i>
+        </div>
+        <span><a href="sports.html" style="text-decoration:none; color:inherit;">Sports</a></span>
+      </div>
+      
+      <div class="category-item" data-category="fps">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-crosshairs"></i>
+        </div>
+        <span><a href="fps.html" style="text-decoration:none; color:inherit;">FPS</a></span>
+      </div>
+      
+      <div class="category-divider"></div>
+      <div class="category-group-heading">Styles</div>
+      
+      <div class="category-item" data-category="classic">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-archive"></i>
+        </div>
+        <span><a href="classic.html" style="text-decoration:none; color:inherit;">Classic Games</a></span>
+      </div>
+      
+      <div class="category-item" data-category="flash">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <span><a href="flash.html" style="text-decoration:none; color:inherit;">Flash Games</a></span>
+      </div>
+      
+      <div class="category-divider"></div>
+      <div class="category-group-heading">Genres</div>
+      
+      <div class="category-item" data-category="strategy">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-chess"></i>
+        </div>
+        <span><a href="strategy.html" style="text-decoration:none; color:inherit;">Strategy</a></span>
+      </div>
+      
+      <div class="category-divider"></div>
+      <div class="category-group-heading">Audiences</div>
+      
+      <div class="category-item" data-category="kids">
+        <div class="category-icon-wrapper">
+          <i class="fas fa-child"></i>
+        </div>
+        <span><a href="gamesforkids.html" style="text-decoration:none; color:inherit;">Kids Games</a></span>
+      </div>
+      
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" style="flex: 1; margin: 0; width: auto; min-width: 0;">
+      <div class="random-game-container">
+        <h1 class="random-game-title">Random Game</h1>
+        <p class="random-game-subtitle">Discover something new to play from our collection!</p>
+        
+        <div id="randomGameCard" class="random-game-card">
+          <img id="randomGameImage"  src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="images/loading.gif" loading="lazy" alt="Random Game">
+          <div class="random-game-info">
+            <h2 id="randomGameName" class="random-game-name">Loading Game...</h2>
+            <span id="randomGameCategory" class="random-game-category">Please Wait</span>
+          </div>
+          <div id="loadingAnimation" class="loading-animation">
+            <i class="fas fa-spinner fa-pulse"></i>
+          </div>
+        </div>
+        
+        <button id="newRandomButton" class="new-random-button">
+          <span class="dice-animation"><i class="fas fa-dice"></i></span>
+          Get Another Random Game
+        </button>
+        
+        <div class="random-facts">
+          <h3><i class="fas fa-lightbulb"></i> Did You Know?</h3>
+          <div class="random-fact">
+            <i class="fas fa-info-circle"></i> Trying random games can help you discover new favorites you might have overlooked!
+          </div>
+          <div class="random-fact">
+            <i class="fas fa-info-circle"></i> Our collection includes over 100 games across different genres and categories.
+          </div>
+          <div class="random-fact">
+            <i class="fas fa-info-circle"></i> Many popular games were discovered by players who were just browsing randomly!
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <center><script type="text/javascript" src="//counter.websiteout.net/js/7/10/5/0"></script></center>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-links">
+        <a href="/privacy-policy">Privacy Policy</a> |
+        <a href="/termsofservice.html">Terms of Service</a> |
+        <a href="/contact">Contact Us</a> |
+        <a href="/about">About Us</a>
+      </div>
+      <p>&copy; <span id="year"></span> Retro621. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Game data
+    const games = [
+      { name: "Slope", image: "images/slope.webp", url: "../games/slope.html", category: "Arcade" },
+      { name: "Retro Bowl", image: "images/retrobowl.webp", url: "../games/retrobowl.html", category: "Sports" },
+      { name: "1v1.lol", image: "https://play-lh.googleusercontent.com/QYGRIDJbyVO7L7jH8CwiKJ4NumTGgcTVqU3ITooLWxro-eeNns1RZ0uwGGFe-r8M4co", url: "../games/1v1lol.html", category: "Multiplayer" },
+      { name: "Duck Life 3", image: "images/ducklife3.webp", url: "../games/duck-life-3.html", category: "Adventure" },
+      { name: "Duck Life 5", image: "images/ducklife5.webp", url: "../games/duck-life-5.html", category: "Adventure" },
+      { name: "Duck Hunt", image: "images/duckhunt.webp", url: "../games/duckhunt.html", category: "Classic" },
+      { name: "Duck Life 2", image: "images/ducklife2.webp", url: "../games/ducklife2.html", category: "Adventure" },
+      { name: "Dune Buggy", image: "images/dunebuggy.webp", url: "../games/dunebuggy.html", category: "Racing" },
+      { name: "Electric Man 2", image: "images/electricman2.webp", url: "../games/electric-man-2.html", category: "Action" },
+      { name: "Fireboy and Watergirl", image: "images/fireboywatergirlfiretemple.webp", url: "../games/fireboy-and-watergirl-firetemple.html", category: "2 Player" },
+      { name: "Flappy 2048", image: "images/flappy2048.webp", url: "../games/flappy-2048.html", category: "Arcade" },
+      { name: "Flappy Bird", image: "images/flappybird.webp", url: "../games/flappybird.html", category: "Arcade" },
+      { name: "Bad Time Simulator", image: "images/badtimesimulator.webp", url: "../games/bad-time-simulator.html", category: "Action" },
+      { name: "Bejeweled 2", image: "images/bejeweled2.webp", url: "../games/bejeweled2.html", category: "Puzzle" },
+      { name: "Bloxors", image: "images/bloxors.webp", url: "../games/bloxors.html", category: "Puzzle" },
+      { name: "Cat Mario", image: "images/catmario.webp", url: "../games/catmario.html", category: "Platform" },
+      { name: "Club Penguin", image: "images/clubpenguin.webp", url: "../games/clubpenguin.html", category: "Social" },
+      { name: "Curveball", image: "images/curveball.webp", url: "../games/curveball.html", category: "Sports" },
+      { name: "Antbuster", image: "images/antbuster.webp", url: "../games/antbuster.html", category: "Strategy" },
+      { name: "Arcade Wizard", image: "images/arcadewizard.webp", url: "../games/arcadewizard.html", category: "Arcade" },
+      { name: "Bad Ice Cream 1", image: "images/badicecream1.webp", url: "../games/bad-icecream-1.html", category: "Strategy" },
+      { name: "Bad Ice Cream 2", image: "images/badicecream2.webp", url: "../games/bad-icecream-2.html", category: "Strategy" },
+      { name: "Bad Ice Cream 3", image: "images/badicecream3.webp", url: "../games/bad-icecream-3.html", category: "Strategy" },
+      { name: "Agar.io", image: "images/agario.webp", url: "../games/agario.html", category: "Multiplayer" },
+      { name: "Angry Birds Halloween", image: "images/angrybirdshalloween.webp", url: "../games/angrybirdshalloween.html", category: "Puzzle" },
+      { name: "Ace Gangster", image: "images/acegangster.webp", url: "../games/acegangster.html", category: "Action" },
+      { name: "10 Minutes Till Dawn", image: "images/10mintilldawn.webp", url: "../games/10-minutes-till-dawn.html", category: "Survival" },
+      { name: "Block Blast", image: "images/blockblast.webp", url: "../games/blockblast.html", category: "Puzzle" },
+      { name: "Idle Breakout", image: "images/idlebreakout.webp", url: "../games/idle-breakout.html", category: "Idle" },
+      { name: "Gunspin", image: "images/gunspin.webp", url: "../games/gunspin.html", category: "Action" },
+      { name: "Learn To Fly", image: "games/learntofly/icon.png", url: "../games/learntofly.html", category: "Adventure" },
+      { name: "Learn To Fly 2", image: "images/learntofly2.webp", url: "../games/learntofly2.html", category: "Adventure" },
+      { name: "Learn To Fly 3", image: "images/learntofly3.webp", url: "../games/learntofly3.html", category: "Adventure" },
+      { name: "House Of Hazards", image: "images/houseofhazards.webp", url: "../games/houseofhazards.html", category: "Multiplayer" },
+      { name: "Hole.io", image: "images/holeio.webp", url: "../games/holeio.html", category: "IO Games" },
+      { name: "Sort the Court", image: "images/sortthecourt.webp", url: "../games/sort-the-court.html", category: "Simulation" },
+      { name: "Spelunky", image: "images/spelunky.webp", url: "../games/spelunky.html", category: "Adventure" },
+      { name: "Steal This Election", image: "images/stealthiselection.webp", url: "../games/stealthiselection.html", category: "Strategy" },
+      { name: "Swords and Sandals 2", image: "images/swordsandsandals2.webp", url: "../games/swords-and-sandals-2.html", category: "RPG" },
+      { name: "Tetris", image: "images/tetris.webp", url: "../games/tetris.html", category: "Puzzle" },
+      { name: "The Big Adventure of Owata's Life", image: "images/thebigadventureofowataslife.webp", url: "../games/the-big-adventure-of-owatas-life.html", category: "Adventure" },
+      { name: "The Binding of Isaac", image: "images/thebindingofisaac.webp", url: "../games/the-binding-of-isaac.html", category: "Roguelike" },
+      { name: "Tower Blaster", image: "images/towerblaster.webp", url: "../games/towerblaster.html", category: "Puzzle" },
+      { name: "Tower Master", image: "images/towermaster.webp", url: "../games/towermaster.html", category: "Arcade" },
+      { name: "World's Hardest Game", image: "images/worldshardestgame.webp", url: "../games/worldshardestgame.html", category: "Challenge" },
+      { name: "World's Hardest Game 2", image: "images/worldshardestgame2.webp", url: "../games/worldshardestgame2.html", category: "Challenge" },
+      { name: "Undertale: Rejuvenation Mod", image: "images/rejuvenation.webp", url: "../games/Rejuvenation.html", category: "RPG" },
+      { name: "Last Breath Trio Mod", image: "images/lastbreathtrio.webp", url: "../games/LastBreathTrio.html", category: "RPG" },
+      { name: "The Final Experiment Mod", image: "images/thefinalexperiment.webp", url: "../games/TheFinalExperiment.html", category: "RPG" },
+      { name: "Friday Night Funkin", image: "images/fridaynightfunkin.webp", url: "../games/friday-night-funkin.html", category: "Rhythm" },
+      { name: "Deep Freeze", image: "images/deepfreeze.webp", url: "../games/deep-freeze.html", category: "Arcade" },
+      { name: "Doodle Jump", image: "images/doodlejump.webp", url: "../games/doodlejump.html", category: "Arcade" }
+    ];
+    
+    // Function to get a random game
+    function getRandomGame() {
+      const randomIndex = Math.floor(Math.random() * games.length);
+      return games[randomIndex];
+    }
+    
+    // Function to display a random game
+    function displayRandomGame() {
+      // Show loading animation
+      document.getElementById('loadingAnimation').style.display = 'block';
+      document.getElementById('randomGameImage').style.opacity = '0.5';
+      
+      // Simulate loading delay for effect
+      setTimeout(function() {
+        const randomGame = getRandomGame();
+        
+        // Update the game card
+        const gameCard = document.getElementById('randomGameCard');
+        const gameImage = document.getElementById('randomGameImage');
+        const gameName = document.getElementById('randomGameName');
+        const gameCategory = document.getElementById('randomGameCategory');
+        
+        // Set image with fade in effect
+        gameImage.src = randomGame.image;
+        gameImage.alt = randomGame.name;
+        gameImage.style.opacity = '1';
+        
+        // Update text content
+        gameName.textContent = randomGame.name;
+        gameCategory.textContent = randomGame.category;
+        
+        // Set click handler
+        gameCard.onclick = function() {
+          window.location.href = randomGame.url;
+        };
+        
+        // Hide loading animation
+        document.getElementById('loadingAnimation').style.display = 'none';
+      }, 800); // 800ms delay for visual effect
+    }
+    
+    // Time tracking function
+    function displayTotalTimeSpent() {
+      const totalKey = 'totalTimeSpent';
+      let totalTimeSpent = parseInt(localStorage.getItem(totalKey)) || 0;
+
+      function formatTime(seconds) {
+          const days = Math.floor(seconds / 86400);
+          const hours = Math.floor((seconds % 86400) / 3600);
+          const minutes = Math.floor((seconds % 3600) / 60);
+          const secs = seconds % 60;
+          return `${days}d ${hours}h ${minutes}m ${secs}s`;
+      }
+
+      function updateDisplay() {
+          document.getElementById('timeSpent').innerHTML = formatTime(totalTimeSpent);
+      }
+
+      updateDisplay();
+
+      setInterval(() => {
+          totalTimeSpent++;
+          localStorage.setItem(totalKey, totalTimeSpent);
+          updateDisplay();
+      }, 1000);
+    }
+    
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', function() {
+      // Display a random game on page load
+      displayRandomGame();
+      
+      // Set up button click handler
+      document.getElementById('newRandomButton').addEventListener('click', function() {
+        displayRandomGame();
+      });
+      
+      // Setup search functionality
+      document.getElementById('searchInput').addEventListener('keyup', function(event) {
+        if (event.key === "Enter") {
+          window.location.href = `index.html?search=${encodeURIComponent(this.value)}`;
+        }
+      });
+      
+      // Start time tracking
+      displayTotalTimeSpent();
+      
+      // Set current year in footer
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+  </script>
+<script src="/js/lazy-media.js" defer></script>
+</body>
+</html>
